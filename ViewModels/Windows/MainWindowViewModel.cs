@@ -13,18 +13,6 @@ namespace SchedulingSimulationOfMultichannelBatchProcessingSystem.ViewModels.Win
         {
             new NavigationViewItem()
             {
-                Content = "首页",
-                Icon = new SymbolIcon { Symbol = SymbolRegular.Home24 },
-                TargetPageType = typeof(Views.Pages.DashboardPage)
-            },
-            new NavigationViewItem()
-            {
-                Content = "数据",
-                Icon = new SymbolIcon { Symbol = SymbolRegular.DataHistogram24 },
-                TargetPageType = typeof(Views.Pages.DataPage)
-            },
-            new NavigationViewItem()
-            {
                 Content = "模拟",
                 Icon = new SymbolIcon { Symbol = SymbolRegular.Play24 },
                 TargetPageType = typeof(Views.Pages.SimulationPage)
@@ -40,12 +28,6 @@ namespace SchedulingSimulationOfMultichannelBatchProcessingSystem.ViewModels.Win
                 Icon = new SymbolIcon { Symbol = SymbolRegular.Settings24 },
                 TargetPageType = typeof(Views.Pages.SettingsPage)
             }
-        };
-
-        [ObservableProperty]
-        private ObservableCollection<MenuItem> _trayMenuItems = new()
-        {
-            new MenuItem { Header = "Home", Tag = "tray_home" }
         };
     }
 }

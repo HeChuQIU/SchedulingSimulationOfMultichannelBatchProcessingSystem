@@ -31,7 +31,5 @@ namespace SchedulingSimulationOfMultichannelBatchProcessingSystem.Views.Pages
 
             InitializeComponent();
         }
-
-
     }
 }

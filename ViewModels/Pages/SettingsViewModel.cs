@@ -24,7 +24,7 @@ namespace SchedulingSimulationOfMultichannelBatchProcessingSystem.ViewModels.Pag
         private void InitializeViewModel()
         {
             CurrentTheme = ApplicationThemeManager.GetAppTheme();
-            AppVersion = $"UiDesktopApp1 - {GetAssemblyVersion()}";
+            AppVersion = $"多道批处理系统两级调度的模拟应用 - {GetAssemblyVersion()}";
 
             _isInitialized = true;
         }

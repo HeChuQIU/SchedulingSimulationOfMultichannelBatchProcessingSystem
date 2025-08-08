@@ -27,6 +27,16 @@ namespace SchedulingSimulationOfMultichannelBatchProcessingSystem.Models
         public uint ServiceTime { get; set; } = serviceTime;
 
         /// <summary>
+        /// 累计运行时间
+        /// </summary>
+        public uint RunningTime { get; set; } = 0;
+
+        /// <summary>
+        /// 剩余服务时间
+        /// </summary>
+        public uint RemainingServiceTime => ServiceTime - RunningTime;
+
+        /// <summary>
         /// 内存占用
         /// </summary>
         public uint MemoryUse { get; set; } = memoryUse;
@@ -54,6 +64,13 @@ namespace SchedulingSimulationOfMultichannelBatchProcessingSystem.Models
         /// <summary>
         /// 带权周转时间
         /// </summary>
-        public uint WeightedTurnaroundTime => TurnaroundTime / ServiceTime;
+        public double WeightedTurnaroundTime => (double)TurnaroundTime / ServiceTime;
+
+        public void Reset()
+        {
+            RunningTime = 0;
+            ProcessedTime = 0;
+            FinishTime = 0;
+        }
     }
 }

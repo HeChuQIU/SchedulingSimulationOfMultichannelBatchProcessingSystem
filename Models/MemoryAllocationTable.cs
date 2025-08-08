@@ -35,6 +35,10 @@ public class MemoryAllocationTable
         _freeMemoryBlocks.Add((0, memorySize));
     }
 
+    public uint MaxMemoryToAllocate => FreeMemoryBlocks.Max(b => b.size);
+
+    public bool CanAllocateMemory(uint size) => MaxMemoryToAllocate >= size;
+
     public void AllocateMemory(string jobName, uint size)
     {
         if (FreeMemoryBlocks.Count == 0)
@@ -84,7 +88,7 @@ public class MemoryAllocationTable
                 var secondBlock = adjacentBlocks[1];
                 _freeMemoryBlocks.Remove(firstBlock);
                 _freeMemoryBlocks.Remove(secondBlock);
-                _freeMemoryBlocks.Add((Math.Min(firstBlock.HeadAddress, headAddress), size + firstBlock.size + secondBlock.size));
+                _freeMemoryBlocks.Add((Math.Min(firstBlock.HeadAddress, Math.Min(headAddress, secondBlock.HeadAddress)), size + firstBlock.size + secondBlock.size));
                 break;
             }
         }

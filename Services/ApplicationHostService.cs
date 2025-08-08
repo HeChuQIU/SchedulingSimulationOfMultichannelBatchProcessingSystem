@@ -50,7 +50,7 @@ namespace SchedulingSimulationOfMultichannelBatchProcessingSystem.Services
                 )!;
                 _navigationWindow!.ShowWindow();
 
-                _navigationWindow.Navigate(typeof(Views.Pages.DashboardPage));
+                _navigationWindow.Navigate(typeof(Views.Pages.SimulationPage));
             }
 
             await Task.CompletedTask;

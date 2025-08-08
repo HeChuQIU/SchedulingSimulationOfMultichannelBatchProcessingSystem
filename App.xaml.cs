@@ -10,6 +10,7 @@ using System.IO;
 using System.Reflection;
 using System.Windows.Threading;
 using Wpf.Ui;
+using Wpf.Ui.Appearance;
 
 namespace SchedulingSimulationOfMultichannelBatchProcessingSystem
 {
@@ -46,10 +47,6 @@ namespace SchedulingSimulationOfMultichannelBatchProcessingSystem
                 services.AddSingleton<INavigationWindow, MainWindow>();
                 services.AddSingleton<MainWindowViewModel>();
 
-                services.AddSingleton<DashboardPage>();
-                services.AddSingleton<DashboardViewModel>();
-                services.AddSingleton<DataPage>();
-                services.AddSingleton<DataViewModel>();
                 services.AddSingleton<SettingsPage>();
                 services.AddSingleton<SettingsViewModel>();
                 services.AddSingleton<SimulationPage>();
@@ -73,6 +70,7 @@ namespace SchedulingSimulationOfMultichannelBatchProcessingSystem
         private void OnStartup(object sender, StartupEventArgs e)
         {
             _host.Start();
+            ApplicationThemeManager.Apply(ApplicationTheme.Dark);
         }
 
         /// <summary>
